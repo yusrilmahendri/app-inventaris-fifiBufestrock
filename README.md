@@ -47,4 +47,5 @@ Setelah melakukan clone repo Laravel, ada beberapa langkah yang perlu Anda lakuk
 
 Setelah menjalankan langkah-langkah di atas, Anda seharusnya dapat mengakses aplikasi file Laravel yang telah Anda clone dengan menggunakan URL yang diberikan oleh perintah `php artisan serve`. Pastikan Anda juga telah mengonfigurasi web server (misalnya Apache atau Nginx) jika ingin menjalankan aplikasi di lingkungan yang berbeda.
 
-
+### IF HAS BUG OR ERROR PLEASE CONTAT ME ON BIO MY PROFILE GITHUB..
+### ENJOY, THANKS YOU. HAVE A NICE DAY.! ###
