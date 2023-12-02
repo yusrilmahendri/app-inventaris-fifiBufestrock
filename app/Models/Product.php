@@ -23,7 +23,7 @@ class Product extends Model
     {
         return $this->belongsTo(Consumer::class);
     }
- 
+
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
@@ -34,7 +34,7 @@ class Product extends Model
     }
 
     public function bufferStock(){
-        return $this->hasOne(BufferStock::class);
+        return $this->hasMany(BufferStock::class);
     }
 
     public function leadTime(){
