@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('inspire')->hourly();
         $schedule->command('reminders:send')->daily();
-        // $schedule->command('reminders:send')->everyMinute();
+        $schedule->command('reminders:send')->everyMinute();
         $schedule->command('reminders:send')->dailyAt('08:00');
     }
 
@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         LeadTimeCommand::class,
     ];
     // crontab -e
-    // take in terminal crontab - e here 
+    // take in terminal crontab - e here
     # * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 
 }

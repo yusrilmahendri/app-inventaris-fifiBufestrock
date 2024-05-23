@@ -20,13 +20,14 @@ class ProductController extends Controller
         ]);
     }
 
-    public function create(){
-    $auth = Auth::user();
-    $consumer = Consumer::where('user_id', $auth->id)->first();
+    public function create()
+    {
+        $auth = Auth::user();
+        $consumer = Consumer::where('user_id', $auth->id)->first();
+        $suppliers = [];
 
-    if ($consumer) {
-       // Retrieve suppliers registered by the logged-in consumer
-        $suppliers = Supplier::where('consumer_id', $consumer->id)->orderBy('name', 'ASC')->get();
+        if ($consumer) {
+            $suppliers = Supplier::where('consumer_id', $consumer->id)->orderBy('name', 'ASC')->get();
         }
 
         return view('consumer.product.create', [

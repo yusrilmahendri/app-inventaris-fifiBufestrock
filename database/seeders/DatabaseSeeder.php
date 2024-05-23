@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
        $this->call([
 
             AdminTableSeeder::class,
+            ConsumerSeeder::class,
+            // SupplierSeedeer::class,
+
             // BufferStockSeeder::class
             // LeadTimeSeeder::class,
             // ProductSeeder::class,

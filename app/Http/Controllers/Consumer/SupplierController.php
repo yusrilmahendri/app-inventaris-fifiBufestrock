@@ -16,7 +16,7 @@ class SupplierController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {
         return view('consumer.supplier.index', [
             'title' => 'Informasi Supplier'
         ]);
@@ -42,7 +42,7 @@ class SupplierController extends Controller
             'gender' => 'required',
             'alamat' => 'required',
         ]);
-    
+
         $auth = Auth::user();
         $consumer = Consumer::where('user_id', $auth->id)->first();
         if ($consumer) {
@@ -54,28 +54,27 @@ class SupplierController extends Controller
                 'gender' => $request->gender,
                 'alamat' => $request->alamat,
             ];
-    
+
             // Check if the email field is not empty before adding it to the data array
             if ($request->filled('email')) {
                 $data['email'] = $request->email;
             }
-    
             Supplier::create($data);
-    
+
             return redirect()->route('consumer.create.product')->with('success', 'Supplier berhasil di daftarkan');
         }
-    
+
         return redirect()->back()->with('danger', 'Maaf data supplier gagal di daftarkan');
     }
-    
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id = null)
     {
-        
-     
+
+
     }
 
     /**

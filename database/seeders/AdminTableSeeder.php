@@ -25,7 +25,7 @@ class AdminTableSeeder extends Seeder
             'gender' => 'pria',
             'alamat' => 'Pangkalpinang, Bangka'
             ],
-            [   
+            [
                 'role' => 'consumer',
                 'name' => 'rahman',
                 'email' => 'consumer@gmail.com',
@@ -33,7 +33,7 @@ class AdminTableSeeder extends Seeder
                 'phone' => '082175084421',
                 'gender' => 'pria',
                 'alamat' => 'erzys@gmail.com',
-        
+
             ],
         ]);
     }
