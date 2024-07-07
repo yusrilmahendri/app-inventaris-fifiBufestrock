@@ -1,8 +1,6 @@
 @extends('backend.default')
 
 @section('content')
-<div class="card">
-    <div class="card-body">
       <h5 class="card-title">Inputan Barang Masuk</h5>
 
       <!-- Vertical Form -->
@@ -37,9 +35,6 @@
         </div>
 
       </form><!-- Vertical Form -->
-
-    </div>
-  </div>
 @endsection
 
 @push('select2css')

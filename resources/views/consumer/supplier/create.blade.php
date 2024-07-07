@@ -1,8 +1,6 @@
 @extends('backend.default')
 
 @section('content')
-<div class="card">
-    <div class="card-body">
       <h5 class="card-title">Daftarkan Supplier</h5>
 
       <!-- Vertical Form -->
@@ -57,10 +55,7 @@
           <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
 
-      </form><!-- Vertical Form -->
-
-    </div>
-  </div>
+      </form>
 @endsection
 @push('scripts')  
   <script src="{{ asset('backend/assets/js/notify.js') }}"></script>

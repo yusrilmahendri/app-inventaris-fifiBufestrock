@@ -91,7 +91,7 @@
   <div class="container">
     <p>
       &copy; <span id="displayYear"></span> All Rights Reserved By
-      <a href="https://yusril.mahendri">Yusril Mahendri</a>
+      <a href="https://yusril.mahendri">inventaris</a>
     </p>
   </div>
 </section>

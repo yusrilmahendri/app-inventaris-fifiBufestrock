@@ -3,9 +3,7 @@
 @section('content')
 <section class="section profile">
     <div class="row">
-      <div class="col-xl-8">
-        <div class="card">
-          <div class="card-body pt-3">
+      <div class="col-xl-16">
 
             <!-- Bordered Tabs -->
             <ul class="nav nav-tabs nav-tabs-bordered">
@@ -23,35 +21,35 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Nama Supplier</div>
-                  <div class="col-lg-9 col-md-8">{{ $supplier->name }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $supplier->name }}</div>
                 </div>
 
                 @if(isset($supplier->email) && !empty($supplier->email))
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">{{ $supplier->email }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $supplier->email }}</div>
                 </div>
                 @endif
             
                 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">{{ $supplier->phone }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $supplier->phone }}</div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">gender</div>
-                    <div class="col-lg-9 col-md-8">{{$supplier->gender }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{$supplier->gender }}</div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">Alamat</div>
-                    <div class="col-lg-9 col-md-8">{{ $supplier->alamat }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $supplier->alamat }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Tanggal Daftar</div>
-                  <div class="col-lg-9 col-md-8">{{ \Carbon\Carbon::parse($supplier->created_at)->format('d-m-Y') }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ \Carbon\Carbon::parse($supplier->created_at)->format('d-m-Y') }}</div>
                 </div>
 
                 <div class="row">
@@ -62,7 +60,7 @@
                         @foreach($uniqueCategories as $category)
                             <li class="list-item">
                                 <a href="{{ route('consumer.category', ['id' => $id, 'category' => urlencode($category)]) }}" style="text-decoration: none;">
-                                    {{ $category }}
+                                  {{ $category }}
                                 </a>
                             </li>
                         @endforeach
@@ -126,8 +124,6 @@
             </div><!-- End Bordered Tabs -->
           </div>
         </div>
-      </div>
-    </div>
   </section>
 
 @endsection

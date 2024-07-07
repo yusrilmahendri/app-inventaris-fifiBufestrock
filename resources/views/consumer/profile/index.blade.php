@@ -3,9 +3,7 @@
 @section('content')
 <section class="section profile">
     <div class="row">
-      <div class="col-xl-8">
-        <div class="card">
-          <div class="card-body pt-3">
+      <div class="col-xl-16">
 
             <!-- Bordered Tabs -->
             <ul class="nav nav-tabs nav-tabs-bordered">
@@ -23,22 +21,22 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                  <div class="col-lg-9 col-md-8">{{ $consumer->name }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->name }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Address</div>
-                  <div class="col-lg-9 col-md-8">{{ $consumer->alamat }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->alamat }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">{{ $consumer->phone }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->phone }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Email</div>
-                  <div class="col-lg-9 col-md-8">{{ $consumer->email }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->email }}</div>
                 </div>
 
               </div>
@@ -112,8 +110,7 @@
             </div><!-- End Bordered Tabs -->
           </div>
         </div>
-      </div>
-    </div>
+
   </section>
 
 @endsection

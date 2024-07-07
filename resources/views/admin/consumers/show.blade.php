@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="col-xl-8">
+<div class="col-xl-16">
 
   <div class="card">
     <div class="card-body pt-3">
@@ -32,32 +32,32 @@
           
           <div class="row">
             <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-            <div class="col-lg-9 col-md-8">{{ $consumer->name }}</div>
+            <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->name }}</div>
           </div>
 
           <div class="row">
             <div class="col-lg-3 col-md-4 label">Email</div>
-            <div class="col-lg-9 col-md-8">{{ $consumer->email }}</div>
+            <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->email }}</div>
           </div>
 
           <div class="row">
             <div class="col-lg-3 col-md-4 label">Status</div>
-            <div class="col-lg-9 col-md-8">Konsumen</div>
+            <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;Konsumen</div>
           </div>
 
           <div class="row">
             <div class="col-lg-3 col-md-4 label">Gender</div>
-            <div class="col-lg-9 col-md-8">{{ $consumer->gender }}</div>
+            <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->gender }}</div>
           </div>
 
           <div class="row">
             <div class="col-lg-3 col-md-4 label">Phone</div>
-            <div class="col-lg-9 col-md-8">{{ $consumer->phone }}</div>
+            <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->phone }}</div>
           </div>
 
           <div class="row">
             <div class="col-lg-3 col-md-4 label">Alamat</div>
-            <div class="col-lg-9 col-md-8">{{ $consumer->alamat }}</div>
+            <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $consumer->alamat }}</div>
           </div>
 
         </div>

@@ -3,7 +3,7 @@
 @section('content')
 <section class="section profile">
     <div class="row">
-      <div class="col-xl-8">
+      <div class="col-xl-16">
             <!-- Bordered Tabs -->
             <ul class="nav nav-tabs nav-tabs-bordered">
               <li class="nav-item">
