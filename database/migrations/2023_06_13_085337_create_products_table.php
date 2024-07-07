@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('category');
             $table->integer('harga_unit');
-            $table->integer('konsumsi_harian');
+            $table->integer('konsumsi_harian')->nullable();
             $table->integer('lead_time');
             $table->integer('safety_stock');
-            $table->integer('rop');
+            $table->integer('rop')->nullable();
             $table->integer('total_persediaan');
             $table->timestamps();
 
