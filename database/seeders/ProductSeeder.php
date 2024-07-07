@@ -25,6 +25,10 @@ class ProductSeeder extends Seeder
                 'category_id' => $categori,
                 'name' => 'Ultra Milk',
                 'harga_unit' => rand(1000, 10000),
+                'konsumsi_harian' => 1,
+                'lead_time' => 1,
+                'safety_stock' => 1,
+                'rop' => 1,
                 'total_persediaan' => rand(5, 10),
                 'created_at' => Carbon::now(),
             ]

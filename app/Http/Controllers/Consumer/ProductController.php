@@ -65,11 +65,14 @@ class ProductController extends Controller
             $product->category = $request->category;
             $product->name = $request->name;
             $product->harga_unit = $request->harga_unit;
-            $product->total_persediaan = $request->total_persediaan;
+            $product->konsumsi_harian = $request->konsumsi_harian;
             $product->safety_stock = $request->safety_stock;
             $product->lead_time = $request->lead_time;
+            $product->rop = $request->rop;
+            $product->total_persediaan = $request->total_persediaan;
             $product->save();
 
+            $this->checkBufferStock($product);
             return redirect()->route('consumer.products')->with('success', 'Product berhasil didaftarkan');
 
         } else {
@@ -122,6 +125,14 @@ class ProductController extends Controller
            BufferStock::create([
                 'product_id' => $product->id,
                 'reason' => 'Ups, Stock barang anda telah mendekati dari safety stock, silahkan update stock barang anda, Terimakasih.',
+           ]);
+        return redirect()->route('consumer.bufferStock')->with('dangers','Silahkan update jumlah barang product anda');
+        }
+        $rop = $product->rop;
+        if ($rop && $product->total_persediaan <= $rop) {
+           BufferStock::create([
+                'product_id' => $product->id,
+                'reason' => 'Ups, Stock barang anda telah mendekati dari Reorder Point (ROP), silahkan update jumlah barang product anda, Terimakasih.',
            ]);
         return redirect()->route('consumer.bufferStock')->with('dangers','Silahkan update jumlah barang product anda');
         }

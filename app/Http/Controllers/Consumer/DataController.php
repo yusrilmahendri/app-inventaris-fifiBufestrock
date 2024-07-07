@@ -29,12 +29,23 @@ class DataController extends Controller
             ->toJson();
     }
 
-    public function products(){
+    public function products()
+    {
         $auth = Auth::user();
         $consumer = Consumer::where('user_id', $auth->id)->first();
-        $productsQuery = Product::where('consumer_id', $consumer->id); 
-        // Query builder instance
+    
+        if (!$consumer) {
+            return response()->json(['error' => 'Consumer not found for the authenticated user.'], 404);
+        }
+    
+        $productsQuery = Product::where('consumer_id', $consumer->id);
+    
+        if ($productsQuery->count() == 0) {
+            return response()->json(['error' => 'No products found for the consumer.'], 404);
+        }
+    
         $products = $productsQuery->orderBy('created_at', 'asc');
+    
         return datatables()->of($products)
             ->addColumn('created_at', function ($product) {
                 return Carbon::parse($product->created_at)->format('d-m-Y');
@@ -47,6 +58,7 @@ class DataController extends Controller
             ->rawColumns(['action'])
             ->toJson();
     }
+    
 
     public function productsIn()
     {

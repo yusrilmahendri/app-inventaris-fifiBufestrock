@@ -4,9 +4,6 @@
 <section class="section profile">
     <div class="row">
       <div class="col-xl-8">
-        <div class="card">
-          <div class="card-body pt-3">
-
             <!-- Bordered Tabs -->
             <ul class="nav nav-tabs nav-tabs-bordered">
               <li class="nav-item">
@@ -23,52 +20,57 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">Kode Barang</div>
-                  <div class="col-lg-9 col-md-8">{{ $product->id }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->id }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Nama Supplier</div>
-                  <div class="col-lg-9 col-md-8">{{ $product->supplier->name }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->supplier->name }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Nama Barang</div>
-                  <div class="col-lg-9 col-md-8">{{ $product->name }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->name }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Kategori Barang</div>
-                  <div class="col-lg-9 col-md-8">{{ $product->category }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->category }}</div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">Harga Per-Unit</div>
-                    <div class="col-lg-9 col-md-8">Rp. {{ number_format($product->harga_unit) }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;Rp. {{ number_format($product->harga_unit) }}</div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">Jumlah Barang</div>
-                    <div class="col-lg-9 col-md-8">{{ $product->total_persediaan }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->total_persediaan }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Safety Stock</div>
-                  <div class="col-lg-9 col-md-8">{{ $product->safety_stock }}</div>
+                  <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->safety_stock }}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Lead Time</div>
-                <div class="col-lg-9 col-md-8">{{ $product->lead_time }}  Hari</div>
+                <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->lead_time }}  Hari</div>
+              </div>
+
+              <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Reorder Point (ROP)</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ $product->rop }}</div>
               </div>
 
               <div class="row">
                     <div class="col-lg-3 col-md-4 label">Tanggal Barang Masuk</div>
-                    <div class="col-lg-9 col-md-8">{{ \Carbon\Carbon::parse($product->created_at)->format('d-m-Y') }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ \Carbon\Carbon::parse($product->created_at)->format('d-m-Y') }}</div>
               </div>
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">Tanggal Update data Barang</div>
-                    <div class="col-lg-9 col-md-8">{{ \Carbon\Carbon::parse($product->updated_at)->format('d-m-Y') }}</div>
+                    <div class="col-lg-9 col-md-8">&nbsp;:&nbsp;&nbsp;{{ \Carbon\Carbon::parse($product->updated_at)->format('d-m-Y') }}</div>
                 </div>
               </div>
 
@@ -123,8 +125,6 @@
             </div><!-- End Bordered Tabs -->
           </div>
         </div>
-      </div>
-    </div>
   </section>
 
 @endsection

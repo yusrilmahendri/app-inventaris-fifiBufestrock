@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('category');
             $table->integer('harga_unit');
-            $table->integer('total_persediaan');
-            $table->integer('safety_stock');
+            $table->integer('konsumsi_harian');
             $table->integer('lead_time');
+            $table->integer('safety_stock');
+            $table->integer('rop');
+            $table->integer('total_persediaan');
             $table->timestamps();
 
             $table->foreign('consumer_id')

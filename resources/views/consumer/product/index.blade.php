@@ -14,6 +14,7 @@
                       <th>Kategori Barang</th>
                       <th>Harga Per-Unit</th>
                       <th>Jumlah Barang</th>
+                      <th>Reorder Point</th>
                       <th>Tanggal Barang Masuk</th>
                       <th>Tindakan</th>
               </thead>
@@ -53,6 +54,7 @@
                     {data: 'category'},
                     {data: 'harga_unit'},
                     {data: 'total_persediaan'},
+                    {data: 'rop'},
                     {data: 'created_at'},
                     {data: 'action'}
                 ]
