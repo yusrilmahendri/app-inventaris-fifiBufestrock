@@ -9,16 +9,22 @@ use App\Models\Consumer;
 use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\Category;
+use App\Traits\HasNotifications;
 
 class SupplierController extends Controller
-{
+{   
+    use HasNotifications;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $data = $this->getConsumerAndProducts();
+
         return view('consumer.supplier.index', [
-            'title' => 'Informasi Supplier'
+            'title' => 'Informasi Supplier',
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
@@ -26,8 +32,12 @@ class SupplierController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-      return view('consumer.supplier.create');
+    {   
+      $data = $this->getConsumerAndProducts();
+      return view('consumer.supplier.create', [
+        'bufferStock' => $data['countBufferStock'],
+        'notifications' => $data['notifications'],
+      ]);
     }
 
     /**
@@ -81,7 +91,8 @@ class SupplierController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id = null)
-    {
+    {   
+        $data = $this->getConsumerAndProducts();
         $supplier = Supplier::findOrFail($id);
         $product = Product::where('supplier_id', $supplier->id)->get();
         $uniqueCategories = array_values(array_unique(array_map('strtolower', $product->pluck('category')->toArray())));
@@ -89,7 +100,9 @@ class SupplierController extends Controller
             'supplier' => $supplier,
             'products' => $product,
             'id' => $id,
-            'uniqueCategories' => $uniqueCategories
+            'uniqueCategories' => $uniqueCategories,
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
@@ -124,7 +137,8 @@ class SupplierController extends Controller
     }
 
     public function category(string $id, string $category = null)
-    {
+    {   
+        $data = $this->getConsumerAndProducts();
         $supplier = Supplier::findOrFail($id);
         $products = Product::where('supplier_id', $supplier->id)->get();
 
@@ -147,7 +161,7 @@ class SupplierController extends Controller
             } else {
                 $productsByCategory[$category] = [
                     'name' => $product->category,
-                'products' => [$product],
+                    'products' => [$product],
                 ];
          }
     }
@@ -156,7 +170,9 @@ class SupplierController extends Controller
             'supplier' => $supplier,
             'productsByCategory' => $productsByCategory,
             'id' => $id,
-            'uniqueCategories' => $uniqueCategories
+            'uniqueCategories' => $uniqueCategories,
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 

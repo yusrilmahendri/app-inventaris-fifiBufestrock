@@ -13,7 +13,9 @@ use App\Models\Category;
 
 class Product extends Model
 {
+
     use HasFactory;
+
     protected $guarded = [''];
     protected $primaryKey = 'id';
     public $incrementing = false;

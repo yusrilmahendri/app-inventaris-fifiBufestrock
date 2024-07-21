@@ -9,23 +9,33 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Consumer;
 use App\Models\Product;
 use App\Models\InventoryMoment;
+use App\Traits\HasNotifications;
 
 class InventoryMomentsController extends Controller
 {
+    use HasNotifications;
+
     public function riwayatBarangMasuk(){
+        $data = $this->getConsumerAndProducts();
         return view('consumer.inventoryMoments.barangMasuk', [
-            'title' => 'Riwayat barang yang keluar'
+            'title' => 'Riwayat barang yang keluar',
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
     public function inventoryIn()
     {   
+        $data = $this->getConsumerAndProducts();
         $auth = Auth::user();
         $consumer = Consumer::where('user_id', $auth->id)->first();
         $product = Product::where('consumer_id', $consumer->id)->orderBy('created_at', 'desc')->get();
+        
         return view('consumer.inventoryMoments.addInventory', [
             'title' => 'Barang Masuk',
-            'products' =>  $product
+            'products' =>  $product,
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
@@ -60,18 +70,24 @@ class InventoryMomentsController extends Controller
     }
 
     public function riwayatInventoryOut(){
+        $data = $this->getConsumerAndProducts();
         return view('consumer.inventoryMoments.barangKeluar', [
             'title' => 'Riwayat Barang Keluar',
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
     public function inventoryOut(){
+        $data = $this->getConsumerAndProducts();
         $auth = Auth::user();
         $consumer = Consumer::where('user_id', $auth->id)->first();
         $product = Product::where('consumer_id', $consumer->id)->orderBy('created_at', 'desc')->get();
         return view('consumer.inventoryMoments.inventoryOut', [
             'title' => 'barang keluar',
-            'products' =>  $product
+            'products' =>  $product,
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 

@@ -8,12 +8,19 @@ use App\Models\LeadTime;
 use App\ModelS\Consumer;
 use App\ModelS\Product;
 use App\Models\BufferStock;
+use App\Traits\HasNotifications;
+
 
 class LeadTimeController extends Controller
 {
+    use HasNotifications;
+
     public function index(){
+        $data = $this->getConsumerAndProducts();
         return view('consumer.leadtime.index', [
            'title' => 'notifikasi barang',
+           'bufferStock' => $data['countBufferStock'],
+           'notifications' => $data['notifications'],
         ]);
     }
 

@@ -13,15 +13,16 @@ use App\Models\LeadTime;
 class DashboardController extends Controller
 {
   public function index($countProducts = 0)
-{
+  {
     $auth = Auth()->user();
     $consumer = Consumer::where('user_id', $auth->id)->first();
 
     $countProducts = Product::where('consumer_id', $consumer->id)->count();
-
     $product = Product::where('consumer_id', $consumer->id)->first();
-
     $products = Product::where('consumer_id', $consumer->id)->get();
+
+    $productIds = $products->pluck('id');
+    $bufferStocks = BufferStock::whereIn('product_id', $productIds)->orderBy('created_at', 'desc')->take(3)->get();
 
     $countProductOut = 0;
     $countProductIn = 0;
@@ -34,13 +35,13 @@ class DashboardController extends Controller
         $countLeadTime += LeadTime::where('product_id', $product->id)->count();
       }
 
-
   return view('consumer.dashboard', [
         'products' => $countProducts,
         'productsOut' => $countProductOut,
         'productsIn' => $countProductIn,
         'bufferStock' => $countBufferStock,
         'leadTime' => $countLeadTime,
+        'notifications' => $bufferStocks
     ]);
   }
 }

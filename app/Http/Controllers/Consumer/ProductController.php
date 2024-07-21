@@ -10,18 +10,26 @@ use App\Models\Consumer;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BufferStock;
 use App\Models\Category;
+use App\Traits\HasNotifications;
 
 class ProductController extends Controller
-{
+{   
+    use HasNotifications;
+
     public function index()
-    {
+    {   
+        $data = $this->getConsumerAndProducts();
+
         return view('consumer.product.index', [
             'title' => 'Koleksi Item Products',
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
     public function create()
-    {
+    {   
+        $data = $this->getConsumerAndProducts();
         $auth = Auth::user();
         $consumer = Consumer::where('user_id', $auth->id)->first();
         $suppliers = [];
@@ -33,6 +41,8 @@ class ProductController extends Controller
         return view('consumer.product.create', [
             'title' => 'Daftarkan Produk',
             'suppliers' => $suppliers,
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
@@ -81,10 +91,13 @@ class ProductController extends Controller
     }
 
     public function show($id){
+        $data = $this->getConsumerAndProducts();
         $product = Product::findOrFail($id);
         return view('consumer.product.show', [
             'title' => 'Detail item product',
-            'product' => $product
+            'product' => $product,
+            'bufferStock' => $data['countBufferStock'],
+            'notifications' => $data['notifications'],
         ]);
     }
 
