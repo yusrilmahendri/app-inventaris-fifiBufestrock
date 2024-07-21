@@ -117,6 +117,14 @@ class InventoryMomentsController extends Controller
            ]);
         return redirect()->route('consumer.bufferStock')->with('dangers','Silahkan update jumlah barang product anda');
         }
+        $rop = $product->rop;
+        if ($rop && $product->total_persediaan <= $rop) {
+           BufferStock::create([
+                'product_id' => $product->id,
+                'reason' => 'Ups, Stock barang anda telah mendekati dari Reorder Point (ROP), silahkan update jumlah barang product anda, Terimakasih.',
+           ]);
+        return redirect()->route('consumer.bufferStock')->with('dangers','Silahkan update jumlah barang product anda');
+        }
     }
     
     public function destroyProductIn($id){

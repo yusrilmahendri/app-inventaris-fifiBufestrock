@@ -35,7 +35,7 @@ class DashboardController extends Controller
       }
 
 
-    return view('consumer.dashboard', [
+  return view('consumer.dashboard', [
         'products' => $countProducts,
         'productsOut' => $countProductOut,
         'productsIn' => $countProductIn,

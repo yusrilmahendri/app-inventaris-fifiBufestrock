@@ -64,10 +64,10 @@
             </div>
           </div><!-- End Revenue Card -->
 
-          <div class="col-xxl-4 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card revenue-card">
               <div class="card-body">
-                <h5 class="card-title">Buffer Stock</h5>
+                <h5 class="card-title">Buffer Stock & Reorder Point(ROP)</h5>
 
                 <div class="d-flex align-items-center">
                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -83,7 +83,7 @@
             </div>
           </div><!-- End Revenue Card -->
 
-          <div class="col-xxl-4 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             
             <div class="card info-card revenue-card">
               <div class="card-body">
