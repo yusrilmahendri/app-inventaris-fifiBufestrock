@@ -37,9 +37,9 @@ trait HasNotifications
         if ($consumer) {
             $products = Product::where('consumer_id', $consumer->id)->get();
             $productIds = $products->pluck('id');
-            $bufferStocks = BufferStock::whereIn('product_id', $productIds)->orderBy('created_at', 'desc')->take(3)->get();
+            $bufferStocks = BufferStock::whereIn('product_id', $productIds)->orderBy('created_at', 'desc')->take(2)->get();
             $notifications = $this->notifications($consumer->id);
-            $leadTimes = leadTime::whereIn('product_id', $productIds)->get();
+            $leadTimes = leadTime::whereIn('product_id', $productIds)->take(2)->get();
         
 
             return [

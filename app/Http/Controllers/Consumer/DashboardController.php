@@ -22,8 +22,8 @@ class DashboardController extends Controller
     $products = Product::where('consumer_id', $consumer->id)->get();
 
     $productIds = $products->pluck('id');
-    $bufferStocks = BufferStock::whereIn('product_id', $productIds)->orderBy('created_at', 'desc')->take(3)->get();
-    $leadTimes = LeadTime::whereIn('product_id', $productIds)->take(3)->get();
+    $bufferStocks = BufferStock::whereIn('product_id', $productIds)->orderBy('created_at', 'desc')->take(2)->get();
+    $leadTimes = LeadTime::whereIn('product_id', $productIds)->take(2)->get();
 
     $countProductOut = 0;
     $countProductIn = 0;

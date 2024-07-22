@@ -28,19 +28,19 @@
         <li class="notification-item">
             <i class="bi bi-exclamation-circle text-warning"></i>
             <div>
-                <h4>Buffer Stock / ROP </h4>
+                <h4><a href="{{ route('consumer.bufferStock') }}">Buffer Stock / ROP </a></h4>
                 <p>{{ $notification->reason }}</p>
                 <p>{{ $notification->created_at->diffForHumans() }}</p>
             </div>
         </li>
         @endforeach
-
+       
         @if($leadTime)
           @foreach ($leadTimes as $leadTimes)
           <li class="notification-item">
               <i class="bi bi-exclamation-circle text-warning"></i>
               <div>
-                  <h4>Lead Time </h4>
+                  <h4><a href=" {{ route('consumer.leadTime') }}">Lead Time</a></h4>
                   <p>{{ $leadTimes->notification }}</p>
                   <p>{{ $notification->created_at->diffForHumans() }}</p>
               </div>
