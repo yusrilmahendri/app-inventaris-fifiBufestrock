@@ -20,6 +20,8 @@ class ProfileController extends Controller
             'title' => 'Informasi Saya',
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 

@@ -35,6 +35,18 @@
         </li>
         @endforeach
 
+        @if($leadTime)
+          @foreach ($leadTimes as $leadTimes)
+          <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                  <h4>Lead Time </h4>
+                  <p>{{ $leadTimes->notification }}</p>
+                  <p>{{ $notification->created_at->diffForHumans() }}</p>
+              </div>
+          </li>
+          @endforeach
+        @endif
         <li>
           <hr class="dropdown-divider">
         </li>

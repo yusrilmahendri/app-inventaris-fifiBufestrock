@@ -21,6 +21,8 @@ class InventoryMomentsController extends Controller
             'title' => 'Riwayat barang yang keluar',
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -36,6 +38,8 @@ class InventoryMomentsController extends Controller
             'products' =>  $product,
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -75,6 +79,8 @@ class InventoryMomentsController extends Controller
             'title' => 'Riwayat Barang Keluar',
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -88,6 +94,8 @@ class InventoryMomentsController extends Controller
             'products' =>  $product,
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 

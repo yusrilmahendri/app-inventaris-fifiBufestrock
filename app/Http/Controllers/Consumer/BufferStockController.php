@@ -21,6 +21,8 @@ class BufferStockController extends Controller
             'title' => 'Notifikasi Buffer Stock',
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],     
+            'leadTimes' => $data['leadTimes'],     
         ]); 
     }
 }

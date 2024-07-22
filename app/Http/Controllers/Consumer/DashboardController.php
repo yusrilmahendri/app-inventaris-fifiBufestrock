@@ -23,6 +23,7 @@ class DashboardController extends Controller
 
     $productIds = $products->pluck('id');
     $bufferStocks = BufferStock::whereIn('product_id', $productIds)->orderBy('created_at', 'desc')->take(3)->get();
+    $leadTimes = LeadTime::whereIn('product_id', $productIds)->take(3)->get();
 
     $countProductOut = 0;
     $countProductIn = 0;
@@ -41,7 +42,8 @@ class DashboardController extends Controller
         'productsIn' => $countProductIn,
         'bufferStock' => $countBufferStock,
         'leadTime' => $countLeadTime,
-        'notifications' => $bufferStocks
+        'notifications' => $bufferStocks,
+        'leadTimes' => $leadTimes
     ]);
   }
 }

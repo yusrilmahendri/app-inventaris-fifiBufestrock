@@ -21,6 +21,8 @@ class LeadTimeController extends Controller
            'title' => 'notifikasi barang',
            'bufferStock' => $data['countBufferStock'],
            'notifications' => $data['notifications'],
+           'leadTime' => $data['leadTime'],
+           'leadTimes' => $data['leadTimes'],   
         ]);
     }
 

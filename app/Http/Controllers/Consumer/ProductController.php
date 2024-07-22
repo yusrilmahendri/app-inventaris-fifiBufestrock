@@ -19,11 +19,12 @@ class ProductController extends Controller
     public function index()
     {   
         $data = $this->getConsumerAndProducts();
-
         return view('consumer.product.index', [
             'title' => 'Koleksi Item Products',
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -43,6 +44,8 @@ class ProductController extends Controller
             'suppliers' => $suppliers,
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -98,6 +101,8 @@ class ProductController extends Controller
             'product' => $product,
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 

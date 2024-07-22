@@ -25,6 +25,8 @@ class SupplierController extends Controller
             'title' => 'Informasi Supplier',
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -37,6 +39,8 @@ class SupplierController extends Controller
       return view('consumer.supplier.create', [
         'bufferStock' => $data['countBufferStock'],
         'notifications' => $data['notifications'],
+        'leadTime' => $data['leadTime'],
+        'leadTimes' => $data['leadTimes'],   
       ]);
     }
 
@@ -103,6 +107,8 @@ class SupplierController extends Controller
             'uniqueCategories' => $uniqueCategories,
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
@@ -173,6 +179,8 @@ class SupplierController extends Controller
             'uniqueCategories' => $uniqueCategories,
             'bufferStock' => $data['countBufferStock'],
             'notifications' => $data['notifications'],
+            'leadTime' => $data['leadTime'],
+            'leadTimes' => $data['leadTimes'],   
         ]);
     }
 
